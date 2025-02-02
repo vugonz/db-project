@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lista do Planograma</title>
+</head>
+<body style="padding:20px">
+<p> <strong>Lista do Planograma</strong> 
+{% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>EAN</th>
+                <th>Nº da Prateleira</th>
+                <th>IVM</th>
+                <th>Fabricante</th>
+                <th>Faces</th>
+                <th>Unidades</th>
+                <th>Localização</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>{{ record[4] }}</td>
+                <td>{{ record[5] }}</td>
+                <td>{{ record[6] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% else %}
+    <p> Erro: ao obter dados da base de dados!</p>
+{% endif %}
+</body>
+</html>
